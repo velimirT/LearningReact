@@ -22,13 +22,12 @@ const PlaceEl = styled.section`
     }
 `;
 
-
-
 export default function Place({
     place,
     index,
     store
 }){
+
     const onClickPlace = (place) => {
       store.dispatch({type:'CHOOSE_PLACE', id:place});
     }

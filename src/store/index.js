@@ -63,7 +63,9 @@ const storeFactory = (state=initialState) =>
     // createStore(MainReducer, state);
     applyMiddleware(logger, saver)(createStore)(
         MainReducer,
-        state
+        (localStorage['redux-store']) ?
+            JSON.parse(localStorage['redux-store']) :
+            state
     )
 
 export default storeFactory
