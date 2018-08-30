@@ -6,8 +6,6 @@ import App from './App';
 import StoreFactory from './store/index.js';
 
 const store = StoreFactory();
-store.dispatch({type:'CHOOSE_PLACE', id:3});
-store.dispatch({type:'CHOOSE_FLOWER', id:1});
 
 const render = () => 
 	ReactDOM.render(

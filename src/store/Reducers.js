@@ -16,6 +16,20 @@ export const MainReducer = (state = {}, action) => {
 					chosen_flower: action.id
 				}
 			)
+		case C.RESET_PLACE:
+			return (
+				{
+					...state, 
+					chosen_place: null
+				}
+			)
+		case C.RESET_FLOWER:
+			return (
+				{
+					...state, 
+					chosen_flower: null
+				}
+			)
 		default: 
 			return state;
 	}
