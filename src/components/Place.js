@@ -25,12 +25,8 @@ const PlaceEl = styled.section`
 export default function Place({
     place,
     index,
-    store
+    onClickPlace
 }){
-
-    const onClickPlace = (place) => {
-      store.dispatch({type:'CHOOSE_PLACE', id:place});
-    }
 
     return(
         <PlaceEl className = "place" onClick = {onClickPlace.bind(null, index)}>

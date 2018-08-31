@@ -19,13 +19,13 @@ const FlowerEl = styled.div`
 
 export default function FlowerThumb ({
     flower,
-    store,
+    onClickFlower,
     index,
 }){
 
   return (
       <FlowerEl>
-          <FlowerThumbEl src = {FlowerImage} alt = {flower.name} onClick = {() => {store.dispatch(chooseFlower(index))}}/>
+          <FlowerThumbEl src = {FlowerImage} alt = {flower.name} onClick = {onClickFlower.bind(null, index)}/>
           <h2>{flower.name}</h2>
       </FlowerEl>
   )
@@ -34,4 +34,5 @@ export default function FlowerThumb ({
 FlowerThumb.propTypes = {
   flower: propTypes.object,
   index: propTypes.number,
+  onClickFlower: propTypes.func
 }

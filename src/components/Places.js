@@ -14,14 +14,21 @@ const PlacesEl = styled.section`
 `;
 
 export default function Places({
-	store
+	chosen_place=null, 
+	places=[], 
+	onClickPlace=f=>f
 }) {
 	return (
-		<PlacesEl className = "places">
-			{Object.keys(store.getState().places).map( i => {
-				return <Place place = {store.getState().places[i]} key = {i} store = {store} index = {parseInt(i, 10)}/>;
-			})}
-		</PlacesEl>
+		<div>
+		{chosen_place !== null ? null :
+			<PlacesEl className = "places">
+					{ 
+					Object.keys(places).map( i => {
+						return <Place place = {places[i]} key = {i} index = {parseInt(i, 10)} onClickPlace={onClickPlace}/>;
+					})}
+			</PlacesEl>
+		}
+		</div>
 	)
 };
 

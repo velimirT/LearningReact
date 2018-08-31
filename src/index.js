@@ -1,18 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 // import registerServiceWorker from './registerServiceWorker';
 import StoreFactory from './store/StoreFactory.js';
+import PropTypes from 'prop-types';
 
-const store = StoreFactory();
+const store = StoreFactory()
 
-const render = () => 
-	ReactDOM.render(
-		<App store = {store}/>, 
-		document.getElementById('root')
-	);
-	
+window.React = React
+window.store = store
+
+render(
+	<Provider store = {store}>
+	    <App/>
+    </Provider>,
+	document.getElementById('root')
+)
 //registerServiceWorker();
-store.subscribe(render);
-render();

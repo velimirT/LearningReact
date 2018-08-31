@@ -5,7 +5,7 @@ import Humidity from './Humidity.js';
 // import WaterLevel from './WaterLevel.js';
 import styled from 'styled-components';
 import propTypes from 'prop-types';
-
+import Undo from './Undo';
 
 const FlowerEl = styled.div`
   position: relative;
@@ -31,23 +31,40 @@ const FlowerEl = styled.div`
   }
 `;
 
+const Wrap = styled.section`
+  svg{
+    color: #23829c;
+  }
+
+`;
+
 export default function Flower({
     flower,
-    store,
+    onClickUndo
 }){
     return (
-        <FlowerEl>
-            <img src = {FlowerImage} alt = {flower.name} index = {parseInt(flower.ID, 10)} store = {store}/>
-            <h2>{flower.name}</h2>
-            <ul>
-                <li><Light light = {parseInt(flower.light, 10)}/></li>
-                <li><Humidity humidity = {parseInt(flower.humidity, 10)}/></li>
-            </ul>
-        </FlowerEl>
+      <div>
+        {
+            flower !== null ?
+            <Wrap>
+              <FlowerEl>
+                <img src = {FlowerImage} alt = {flower.name}/>
+                <h2>{flower.name}</h2>
+                <ul>
+                    <li><Light light = {parseInt(flower.light, 10)}/></li>
+                    <li><Humidity humidity = {parseInt(flower.humidity, 10)}/></li>
+                </ul>
+              </FlowerEl>
+              <Undo onClickHandler = {onClickUndo}/>
+            </Wrap>
+               : null
+        }
+      </div>
+      
     );
 }
 
 Flower.propTypes = {
     flower: propTypes.object,
-    onClickFlower: propTypes.func
+    onClickUndo: propTypes.func
 }
