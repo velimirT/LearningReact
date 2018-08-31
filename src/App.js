@@ -5,7 +5,7 @@ import Places from './components/Places';
 import FlowersList from './components/FlowersList';
 import Flower from './components/Flower';
 import Undo from './components/Undo';
-
+import {resetPlace, resetFlower} from './store/Actions';
 const AppWrap = styled.div`
   text-align:center;
 `;
@@ -42,18 +42,17 @@ svg{
 }
 `;
 
+const FlowersListWrap = styled.section`
+svg{
+  color: #23829c;
+  opacity: 0.8;
+}
+`
+
 
 class App extends Component {
   render() {
     const {store} = this.props;
-
-    const onClickResetPlace = () => {
-      store.dispatch({type: "RESET_PLACE"});
-    }
-
-    const onClickResetFlower = () => {
-      store.dispatch({type: "RESET_FLOWER"});
-    }
     
     return (
       <AppWrap>
@@ -67,14 +66,14 @@ class App extends Component {
                  <Places store = {store} />
                   : 
                     store.getState().chosen_flower === null ?
-                      <section>
+                      <FlowersListWrap>
                         <FlowersList place = {store.getState().places[store.getState().chosen_place]} store = {store}/>
-                        <Undo onClickHandler = {onClickResetPlace.bind(null)}/>
-                      </section>
+                        <Undo onClickHandler = {() => {store.dispatch(resetPlace())}}/>
+                      </FlowersListWrap>
                         :
                           <FlowerOpen>
-                            <Undo onClickHandler = {onClickResetFlower.bind(null)} />
-                            <Flower flower = {store.getState().places[store.getState().chosen_place].flowers[store.getState().chosen_flower]}/>
+                            <Undo onClickHandler = {() => {store.dispatch(resetFlower())}} />
+                            <Flower flower = {store.getState().places[store.getState().chosen_place].flowers[store.getState().chosen_flower]} store = {store}/>
                           </FlowerOpen> 
           }
         </MainWrap>

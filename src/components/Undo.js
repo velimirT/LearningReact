@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '../third_party_modules/@fortawesome/react-fontawesome';
-import { faUndo } from '../third_party_modules/@fortawesome/free-solid-svg-icons';
+import { faChevronCircleLeft } from '../third_party_modules/@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 
@@ -23,7 +23,7 @@ export default function Undo({
 }) {
 	return (
 		<UndoEl>
-			<FontAwesomeIcon icon={faUndo} onClick = {onClickHandler} className="fontawesome_icon_undo" />
+			<FontAwesomeIcon icon={faChevronCircleLeft} onClick = {onClickHandler} className="fontawesome_icon_undo" />
 		</UndoEl>
 	)
 }

@@ -22,5 +22,4 @@ export default function FlowersList ({
 
 FlowersList.propTypes = {
     place: propTypes.object.isRequired,
-    onClickFlower: propTypes.func.isRequired,
 }

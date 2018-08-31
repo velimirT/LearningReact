@@ -6,14 +6,12 @@ import Humidity from './Humidity.js';
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 
-const FlowerThumb = styled.img`
-  cursor: pointer;
-`;
 
 const FlowerEl = styled.div`
   position: relative;
   width: 25%;
   display: inline-block;
+  margin-top: 40px;
   ul{
       text-align: left;
       list-style-type: none;
@@ -35,11 +33,11 @@ const FlowerEl = styled.div`
 
 export default function Flower({
     flower,
-    onClickFlower,
+    store,
 }){
     return (
         <FlowerEl>
-            <FlowerThumb src = {FlowerImage} alt = {flower.name} index = {parseInt(flower.ID, 10)} onClickFlower = {onClickFlower}/>
+            <img src = {FlowerImage} alt = {flower.name} index = {parseInt(flower.ID, 10)} store = {store}/>
             <h2>{flower.name}</h2>
             <ul>
                 <li><Light light = {parseInt(flower.light, 10)}/></li>
