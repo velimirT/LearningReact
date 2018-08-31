@@ -6,7 +6,6 @@ import propTypes from 'prop-types';
 const FlowerEl = styled.div`
   position: relative;
   display: inline-block;
-  cursor: pointer;
  `;
 
  const FlowerThumbEl = styled.img`
