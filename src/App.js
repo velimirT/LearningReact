@@ -7,7 +7,7 @@ import Flower from './components/Flower';
 import Undo from './components/Undo';
 import {resetPlace, resetFlower} from './store/Actions';
 import PropTypes from 'prop-types';
-import { PlacesWrap, FlowersListWrap, FlowerWrap } from './components/Containers'
+import { PlacesWrap, FlowersListWrap, FlowerWrap, SideNavWrap } from './components/Containers'
 
 const AppWrap = styled.div`
   text-align:center;
@@ -37,6 +37,7 @@ const AppLogo = styled.img`
 
 const MainWrap = styled.main`
   position: relative;
+  margin: 20px 0;
 `;
 
 class App extends Component {
@@ -51,6 +52,7 @@ class App extends Component {
           <PlacesWrap/>
           <FlowersListWrap/>
           <FlowerWrap/>
+          <SideNavWrap/>
         </MainWrap>
       </AppWrap>
     );

@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware } from 'redux'
 import { MainReducer } from './Reducers.js';
+import thunk from 'redux-thunk';
 
 const initialState = {
     places:[
@@ -40,6 +41,8 @@ const initialState = {
     ],
     chosen_place: null,
     chosen_flower: null,
+    chosen_flower_light: null,
+    chosen_flower_humidity: null,
   }
 
 const logger = store => next => action => {
@@ -61,7 +64,7 @@ const saver = store => next => action => {
 
 const storeFactory = (state=initialState) =>
     // createStore(MainReducer, state);
-    applyMiddleware(logger, saver)(createStore)(
+    applyMiddleware(logger, saver, thunk)(createStore)(
         MainReducer,
         (localStorage['redux-store']) ?
             JSON.parse(localStorage['redux-store']) :

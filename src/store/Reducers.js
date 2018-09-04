@@ -13,7 +13,9 @@ export const MainReducer = (state = {}, action) => {
 			return (
 				{
 					...state, 
-					chosen_flower: action.id
+					chosen_flower: action.id,
+					chosen_flower_light: action.json[0].temp,
+					chosen_flower_humidity: action.json[0].voc
 				}
 			)
 		case C.RESET_PLACE:

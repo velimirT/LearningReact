@@ -8,7 +8,7 @@ const PlacesEl = styled.section`
     max-width: 1000px;
     border: 1px solid #444;
     border-radius: 15px;
-    margin: 20px auto;
+    margin: 0px auto;
     overflow: hidden;
     background-color: #414141;
 `;

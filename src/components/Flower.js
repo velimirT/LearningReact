@@ -40,6 +40,8 @@ const Wrap = styled.section`
 
 export default function Flower({
     flower,
+    light,
+    humidity,
     onClickUndo
 }){
     return (
@@ -51,8 +53,8 @@ export default function Flower({
                 <img src = {FlowerImage} alt = {flower.name}/>
                 <h2>{flower.name}</h2>
                 <ul>
-                    <li><Light light = {parseInt(flower.light, 10)}/></li>
-                    <li><Humidity humidity = {parseInt(flower.humidity, 10)}/></li>
+                    <li><Light light = {parseFloat(light, 10)}/></li>
+                    <li><Humidity humidity = {parseInt(humidity, 10)}/></li>
                 </ul>
               </FlowerEl>
               <Undo onClickHandler = {onClickUndo}/>

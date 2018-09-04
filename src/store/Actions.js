@@ -1,4 +1,5 @@
-import C from './Constants'
+import C from './Constants';
+import fetch from 'isomorphic-fetch';
 
 export const choosePlace = (id) => 
 	({
@@ -6,10 +7,24 @@ export const choosePlace = (id) =>
 		id
 	})
 
-export const chooseFlower = (id) => 
+export const getFlower = (id) => {
+  return function(dispatch, getState) {
+    return fetch('http://vem-web.com/Ard/seonsor/func.php?act=readCSS118Graph')
+    .then(response => response.json())
+      .then(json => {
+	      	console.log(json);
+	      	dispatch(chooseFlower(id, json))
+      	}
+      )
+    }
+  }
+
+
+export const chooseFlower = (id, json) => 
 	({
 		type: C.CHOOSE_FLOWER,
-		id
+		id,
+		json
 	})
 
 export const resetPlace = (id) => 
