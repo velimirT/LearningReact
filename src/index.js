@@ -8,7 +8,7 @@ import StoreFactory from './store/StoreFactory.js';
 import PropTypes from 'prop-types';
 
 const store = StoreFactory()
-
+console.log(store);
 window.React = React
 window.store = store
 

@@ -54,7 +54,7 @@ export default function SideNav({
 
 SideNav.propTypes = {
 	places: propTypes.array,
-	chosen_place: propTypes.number,
+	chosen_place: propTypes.string,
 	onClickPlace: propTypes.func,
 	onClickHome: propTypes.func,
 }
